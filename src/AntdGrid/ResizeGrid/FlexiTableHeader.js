@@ -1,3 +1,4 @@
+import React from 'react';
 import { Resizable } from 'react-resizable';
 import PropTypes from 'prop-types';
 import './FlexiTableHeader.scss';

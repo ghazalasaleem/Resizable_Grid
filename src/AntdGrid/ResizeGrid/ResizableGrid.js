@@ -1,3 +1,4 @@
+import React from 'react';
 import { Table } from 'antd';
 import { useState } from 'react';
 import { columnsData, data } from '../../config/GridConfig';
