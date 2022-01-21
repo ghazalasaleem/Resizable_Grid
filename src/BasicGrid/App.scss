@@ -1,7 +1,27 @@
 .App {
-  text-align: center;
+  padding: 20px;
+  width: 600px;
+  /* height: 300px; */
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 175px;
+  }
+  table {
+    table-layout: fixed;
+    /* width: inherit; */
+  }
+  .fixed {
+    max-width: max-content;
+  }
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +55,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
