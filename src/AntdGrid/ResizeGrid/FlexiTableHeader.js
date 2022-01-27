@@ -17,7 +17,9 @@ const ResizableTitle = (props) => {
     console.log(props);
   }, [props]);
 
-  return (isFixed ? <th {...restProps} /> :
+  return (isFixed ? <th {...restProps} style={{
+    // minWidth: 900
+  }}/> :
     <Resizable
       width={width}
       height={0}
@@ -33,7 +35,7 @@ const ResizableTitle = (props) => {
     >
       <th {...restProps} style={{
         minWidth: width,
-        maxWidth: '700px'
+        maxWidth: undefined
         }} />
     </Resizable>
   );

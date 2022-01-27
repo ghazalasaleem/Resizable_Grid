@@ -37,7 +37,8 @@ export const columnsData = [
     ellipsis: true,
     render: (label) => (<span>{label}</span>),
     isResized: false,
-    width: 400,
+    widthInPercentage: 20,
+    minWidthConfig: 150,
     isFixed: false
     
   },
@@ -48,7 +49,8 @@ export const columnsData = [
     ellipsis: true,
     render: (label) => (<span>{label}</span>),
     isResized: false,
-    width: 200,
+    widthInPercentage: 10,
+    minWidthConfig: 150,
     isFixed: false
     
   },
@@ -59,7 +61,8 @@ export const columnsData = [
     ellipsis: true,
     render: (label) => (<span>{label}</span>),
     isResized: false,
-    width: 200,
+    widthInPercentage: 25,
+    minWidthConfig: 150,
     isFixed: false
   },
   {
@@ -69,7 +72,8 @@ export const columnsData = [
     ellipsis: true,
     render: (label) => (<span>{label}</span>),
     isResized: false,
-    width: 500,
+    widthInPercentage: 25,
+    minWidthConfig: 150,
     isFixed: false
   },
 ];

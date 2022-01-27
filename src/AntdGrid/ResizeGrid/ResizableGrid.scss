@@ -1,14 +1,14 @@
 .resizeGrid {
   &.autofit {
     .ant-table table {
-      // width: auto;
+      width: auto;
     }
   }
   .ant-table table {
     // min-width: 100%;
     // max-width: max-content;
     user-select: none;
-    table-layout: auto !important;
+    // table-layout: auto !important;
     .ant-table-cell {
       min-width: 150px;
       &:not(.ant-table-cell-ellipsis) {

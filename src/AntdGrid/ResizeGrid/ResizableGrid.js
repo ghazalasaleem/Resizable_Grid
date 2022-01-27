@@ -28,13 +28,13 @@ const ResizableGrid = () => {
           autoFitFlag = !col.isFixed;
           col.ellipsis = !autoFitFlag;
           col.isFixed = autoFitFlag;
-          // if (autoFitFlag) {
-          //   col.prevWidth = col.width
-          //   col.width = 700;
-          // } else {
-          //   col.width = col.prevWidth;
-          //   col.prevWidth = 700;
-          // }
+          if (autoFitFlag) {
+            col.prevWidth = col.width
+            col.width = 'fit-content';
+          } else {
+            col.width = col.prevWidth;
+            col.prevWidth = 'auto';
+          }
         }
         return col;
       });

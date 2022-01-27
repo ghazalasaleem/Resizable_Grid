@@ -1,0 +1,36 @@
+.resizeGrid {
+  &.autofit {
+    .ant-table table {
+      width: auto;
+    }
+  }
+  .ant-table .ant-table-content {
+    overflow-x: auto;
+     table {
+      table-layout: auto;
+      .ant-table-cell {
+        &:not(.ant-table-cell-ellipsis) {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  th{
+    &.ant-table-cell:not(.ant-table-cell-ellipsis){
+        background-color: beige;
+    }
+  }
+}
+// table th:nth-child(1), table td:nth-child(1) {
+//   max-width: 210px;
+// }
+// table th:nth-child(2), table td:nth-child(2) {
+//   max-width: 310px;
+// }
+// table th:nth-child(3), table td:nth-child(3) {
+//   max-width: 320px;
+// }
+
+// table th:nth-child(4), table td:nth-child(4) {
+//   max-width: 350px;
+// }
