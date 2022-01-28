@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Resizable } from 'react-resizable';
 import PropTypes from 'prop-types';
 import './TestHeader.scss';
@@ -11,10 +11,6 @@ const TestHeader = (props) => {
     isFixed,
     ...restProps
   } = props;
-
-  useEffect(() => {
-    console.log(props);
-  }, [props]);
 
   return (isFixed?
     <th {...restProps} 
