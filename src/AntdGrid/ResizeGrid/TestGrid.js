@@ -1,9 +1,10 @@
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { columnsData, data } from '../../config/GridConfig';
+import { columnsData } from '../../config/GridConfig';
 import TestHeader from './TestHeader';
 import './TestGrid.scss';
 import TestCell from './TestCell';
+import { data } from '../../config/Mockdata';
 
 const TestGrid = () => {
   const [columns, setColumns] = useState([]);
@@ -117,10 +118,19 @@ const TestGrid = () => {
           };
         }
       },
-      onCell: () => ({
-        minWidth: col.minWidth,
-        maxWidth: col.width
-      }),
+      onCell: () => {
+        if(col.isFixed) {
+          return {
+            isFixed: col.isFixed
+          };
+        } else {
+          return {
+            minWidth: col.minWidth,
+            maxWidth: col.width,
+            isFixed: col.isFixed
+          };
+        }
+      },
       render: (label) => (<span onClick={() => handleClick(col.key, !col.isFixed)}>{label}</span>),
     }
   ));

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Table } from 'antd';
 import { useState } from 'react';
-import { columnsData, data } from '../../config/GridConfig';
+import { columnsData } from '../../config/GridConfig';
 import ResizableTitle from './FlexiTableHeader';
 import './ResizableGrid.scss';
+import { data } from '../../config/Mockdata';
 
 const ResizableGrid = () => {
 

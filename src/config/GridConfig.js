@@ -1,43 +1,11 @@
-export const data = [
-  {
-    key: '1',
-    job:'Job Id-1PA2323',
-    desc:'Something that is worth doing. Something that is worth doing. Something that is worth doing.',
-    comment:'Michael Jordan, Obama a champion, Mandela a champion, Serena a champion',
-    date: '31 Jan 2019'
-  },
-  {
-    key: '2',
-    job:'Job Id-781S34U34678',
-    desc:'Task to be done asap. Task to be done asap. Task to be done asap.',
-    comment:'Michael Jordan, Obama a champion, Mandela a champion, Serena a champion, Wendy a champion, Shelly-Ann a champion',
-    date: '31 December 2019'
-  },
-  {
-    key: '3',
-    job:'Job Id-A32G7A12A32G7AA12CFGH',
-    desc:'If you want to do, do it. else leave it. If you want to do, do it. else leave it.If you want to do, do it. else leave it',
-    comment:'Michael Jordan, Obama a champion, Mandela a champion, Serena a champion, Wendy a champion, Shelly-Ann a champion, Michael Jordan, Obama a champion, Mandela a champion, Serena a champion, Wendy a champion, Shelly-Ann a champion',
-    date: '31 May 2019'
-  },
-  {
-    key: '4',
-    job:'Job Id-QWCFS1212A12CFGH',
-    desc:'If you want to do, do it. else leave it. If you want to do, do it. else leave it.If you want to do, do it. else leave it',
-    comment:'Michael Jordan, Obama a champion, Mandela a champion, Serena a champion, Wendy a champion, Shelly-Ann a champion, Michael Jordan, Obama a champion, Mandela a champion, Serena a champion, Wendy a champion, Shelly-Ann a champion',
-    date: '31 January 2021'
-  }
-];
-
 export const columnsData = [
   {
     title: 'Job',
     dataIndex: 'job',
     key: 'job',
     ellipsis: true,
-    render: (label) => (<span>{label}</span>),
     isResized: false,
-    widthInPercentage: 20,
+    widthInPercentage: 10,
     minWidthConfig: 150,
     isFixed: false
     
@@ -47,7 +15,6 @@ export const columnsData = [
     dataIndex: 'date',
     key: 'date',
     ellipsis: true,
-    render: (label) => (<span>{label}</span>),
     isResized: false,
     widthInPercentage: 10,
     minWidthConfig: 150,
@@ -59,10 +26,19 @@ export const columnsData = [
     dataIndex: 'desc',
     key: 'desc',
     ellipsis: true,
-    render: (label) => (<span>{label}</span>),
     isResized: false,
-    widthInPercentage: 25,
+    widthInPercentage: 15,
     minWidthConfig: 150,
+    isFixed: false
+  },
+  {
+    title: 'Status',
+    dataIndex: 'status',
+    key: 'status',
+    ellipsis: true,
+    isResized: false,
+    widthInPercentage: 5,
+    minWidthConfig: 100,
     isFixed: false
   },
   {
@@ -70,9 +46,38 @@ export const columnsData = [
     dataIndex: 'comment',
     key: 'comment',
     ellipsis: true,
-    render: (label) => (<span>{label}</span>),
     isResized: false,
-    widthInPercentage: 25,
+    widthInPercentage: 10,
+    minWidthConfig: 150,
+    isFixed: false
+  },
+  {
+    title: 'Created By',
+    dataIndex: 'createdBy',
+    key: 'createdBy',
+    ellipsis: true,
+    isResized: false,
+    widthInPercentage: 10,
+    minWidthConfig: 150,
+    isFixed: false
+  },
+  {
+    title: 'Location',
+    dataIndex: 'location',
+    key: 'location',
+    ellipsis: true,
+    isResized: false,
+    widthInPercentage: 10,
+    minWidthConfig: 150,
+    isFixed: false
+  },
+  {
+    title: 'Contact',
+    dataIndex: 'contact',
+    key: 'contact',
+    ellipsis: true,
+    isResized: false,
+    widthInPercentage: 10,
     minWidthConfig: 150,
     isFixed: false
   },
