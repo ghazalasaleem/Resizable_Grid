@@ -61,35 +61,39 @@ const TestGrid = () => {
       });
     });
     setColumns(colList);
-    checkAutoFit(colList);
   };
-
-  useEffect(() => {
-    rerenderTable(columnsData, false);
-  }, []);
-
   const checkAutoFit = (colData) => {
     let flag = false;
     colData.forEach(element => {
-      if (element.isFixed) {
+      if (element.isFixed || element.isResized) {
         flag = true;
       }
     });
     setIsAutoFit(flag);
   };
 
+  useEffect(() => {
+    checkAutoFit(columns);
+  }, [columns]);
+
+  useEffect(() => {
+    rerenderTable(columnsData, false);
+  }, []);  
+
   const handleClick = (key, isFixed) => {
     rerenderTable([...columns], isFixed, key);
   };
 
   const handleResize = (index) => (e, { size }) => {
+
     setColumns((prevState) => {
       const nextColumns = [...prevState];
       const resizeWidth = size.width < nextColumns[index].minWidthConfig? nextColumns[index].minWidthConfig : size.width;
       nextColumns[index] = {
         ...nextColumns[index],
         width: resizeWidth,
-        minWidth: resizeWidth
+        minWidth: resizeWidth,
+        isResized: true
       };
       return nextColumns;
     });
