@@ -49,8 +49,8 @@ const TestGrid = () => {
         } else {
           config = {
             ellipsis: true,
-            minWidth: newWidth,
-            width: newWidth
+            minWidth: col.minWidth || newWidth,
+            width: col.width || newWidth
           };
         }
       }
@@ -82,14 +82,37 @@ const TestGrid = () => {
     rerenderTable([...columns], isFixed, key);
   };
 
+  const handleResize = (index) => (e, { size }) => {
+    setColumns((prevState) => {
+      const nextColumns = [...prevState];
+      const resizeWidth = size.width < nextColumns[index].minWidthConfig? nextColumns[index].minWidthConfig : size.width;
+      nextColumns[index] = {
+        ...nextColumns[index],
+        width: resizeWidth,
+        minWidth: resizeWidth
+      };
+      return nextColumns;
+    });
+  };
+
   const tableCols = columns.map((col, index) => (
     {
       ...col,
-      onHeaderCell: (column) => ({
-        minWidth: column.minWidth,
-        maxWidth: column.width,
-        // onResize: handleResize(index),
-      }),
+      onHeaderCell: (column) => {
+        if(column.isFixed) {
+          return {
+            onResize: handleResize(index),
+            isFixed: column.isFixed
+          };
+        } else {
+          return {
+            minWidth: column.minWidth,
+            maxWidth: column.width,
+            onResize: handleResize(index),
+            isFixed: column.isFixed
+          };
+        }
+      },
       onCell: () => ({
         minWidth: col.minWidth,
         maxWidth: col.width

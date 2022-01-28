@@ -7,6 +7,7 @@
   .ant-table .ant-table-content {
     overflow-x: auto;
      table {
+      user-select: none;
       table-layout: auto;
       .ant-table-cell {
         &:not(.ant-table-cell-ellipsis) {

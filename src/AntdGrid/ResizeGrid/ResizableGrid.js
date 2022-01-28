@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import { useState } from 'react';
 import { columnsData, data } from '../../config/GridConfig';
 import ResizableTitle from './FlexiTableHeader';
-import './ResizableGrid.scss'; 
+import './ResizableGrid.scss';
 
 const ResizableGrid = () => {
 
@@ -23,21 +23,21 @@ const ResizableGrid = () => {
   const handleClick = (key) => {
     const cols = [...columns];
     let autoFitFlag;
-      cols.map((col) => {
-        if(col.key === key) {
-          autoFitFlag = !col.isFixed;
-          col.ellipsis = !autoFitFlag;
-          col.isFixed = autoFitFlag;
-          if (autoFitFlag) {
-            col.prevWidth = col.width
-            col.width = 'fit-content';
-          } else {
-            col.width = col.prevWidth;
-            col.prevWidth = 'auto';
-          }
+    cols.map((col) => {
+      if (col.key === key) {
+        autoFitFlag = !col.isFixed;
+        col.ellipsis = !autoFitFlag;
+        col.isFixed = autoFitFlag;
+        if (autoFitFlag) {
+          col.prevWidth = col.width
+          col.width = 'fit-content';
+        } else {
+          col.width = col.prevWidth;
+          col.prevWidth = 'auto';
         }
-        return col;
-      });
+      }
+      return col;
+    });
     setColumns(cols);
     checkAutoFit([...cols]);
   };
@@ -53,16 +53,16 @@ const ResizableGrid = () => {
       return nextColumns;
     });
   };
-const calcWidth = (val) => {
-  let width = 100;
-  if (typeof val === 'number') {
-    width = val;
-  } else if (typeof val === 'string' && val.indexOf('%') > -1) {
-    const widthPercent = parseInt(val.replace('%', ''));
-    width = (window.innerWidth*widthPercent)/100;
-  }
-  return width;
-};
+  const calcWidth = (val) => {
+    let width = 100;
+    if (typeof val === 'number') {
+      width = val;
+    } else if (typeof val === 'string' && val.indexOf('%') > -1) {
+      const widthPercent = parseInt(val.replace('%', ''));
+      width = (window.innerWidth * widthPercent) / 100;
+    }
+    return width;
+  };
   const tableCols = columns.map((col, index) => (
     {
       ...col,
@@ -85,10 +85,10 @@ const calcWidth = (val) => {
 
   return (
     <div className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"}>
-    <Table dataSource={data} columns={tableCols} pagination={false} 
-    components={components}
-    bordered/>
-    {/* <button onClick={handleClick}>Click to change column width </button> */}
+      <Table dataSource={data} columns={tableCols} pagination={false}
+        components={components}
+        bordered />
+      {/* <button onClick={handleClick}>Click to change column width </button> */}
     </div>
   );
 };
