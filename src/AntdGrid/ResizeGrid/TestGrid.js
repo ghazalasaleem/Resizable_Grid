@@ -25,6 +25,7 @@ const TestGrid = () => {
       let config = {};
       if (col.key === key) {
         if (isAuto) {
+          setIsAutoFit(true);
           config = {
             isFixed: true,
             ellipsis: false,
@@ -42,6 +43,7 @@ const TestGrid = () => {
       }
       else {
         if(col.isFixed) {
+          setIsAutoFit(true);
           config = {
             ellipsis: false,
             minWidth: '',
