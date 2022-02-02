@@ -1,9 +1,9 @@
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { columnsData } from '../../config/GridConfig';
-import TestHeader from './TestHeader';
-import './TestGrid.scss';
-import TestCell from './TestCell';
+import ResizeHeader from './ResizeHeader';
+import './ResizeGrid.scss';
+import ResizeCell from './CellComponent';
 import { data } from '../../config/Mockdata';
 
 const TestGrid = () => {
@@ -138,15 +138,21 @@ const TestGrid = () => {
   ));
   const components = {
     header: {
-      cell: TestHeader,
+      cell: ResizeHeader,
     },
     body: {
-      cell: TestCell,
+      cell: ResizeCell,
     }
   };
   return (
     <div className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"}>
-      <Table dataSource={data} columns={tableCols} pagination={false} bordered components={components} />
+      <Table dataSource={data} columns={tableCols} pagination={false} bordered components={components} 
+      tableLayout='auto'
+      scroll={{ 
+        // y: 500,
+        // x: 'max-content'
+       }}
+      />
     </div>
   );
 };

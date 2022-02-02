@@ -17,7 +17,7 @@ export const columnsData = [
     ellipsis: true,
     isResized: false,
     widthInPercentage: 10,
-    minWidthConfig: 150,
+    minWidthConfig: 100,
     isFixed: false
     
   },
@@ -27,7 +27,7 @@ export const columnsData = [
     key: 'desc',
     ellipsis: true,
     isResized: false,
-    widthInPercentage: 15,
+    widthInPercentage: 10,
     minWidthConfig: 150,
     isFixed: false
   },
@@ -38,7 +38,7 @@ export const columnsData = [
     ellipsis: true,
     isResized: false,
     widthInPercentage: 5,
-    minWidthConfig: 100,
+    minWidthConfig: 85,
     isFixed: false
   },
   {
@@ -58,7 +58,7 @@ export const columnsData = [
     ellipsis: true,
     isResized: false,
     widthInPercentage: 10,
-    minWidthConfig: 150,
+    minWidthConfig: 120,
     isFixed: false
   },
   {
@@ -77,8 +77,8 @@ export const columnsData = [
     key: 'contact',
     ellipsis: true,
     isResized: false,
-    widthInPercentage: 10,
-    minWidthConfig: 150,
+    widthInPercentage: 7,
+    minWidthConfig: 120,
     isFixed: false
   },
 ];

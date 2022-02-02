@@ -4,14 +4,14 @@ import './index.css';
 // import App from './BasicGrid/App';
 // import Grid from './AntdGrid/Grid';
 // import ResizableGrid from './AntdGrid/ResizeGrid/ResizableGrid';
-import TestGrid from './AntdGrid/ResizeGrid/TestGrid';
+import ResizeGrid from './AntdGrid/ResizeGrid/ResizeGrid';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Grid /> */}
     {/* <ResizableGrid /> */}
-    <TestGrid />
+    <ResizeGrid />
   </React.StrictMode>,
   document.getElementById('root')
 );

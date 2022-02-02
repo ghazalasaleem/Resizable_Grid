@@ -4,11 +4,13 @@
       width: auto;
     }
   }
-  .ant-table .ant-table-content {
-    overflow-x: auto;
+  .ant-table .ant-table-container {
      table {
-      user-select: none;
-      table-layout: auto;
+       thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+       }
       .ant-table-cell {
         &:not(.ant-table-cell-ellipsis) {
           white-space: nowrap;
