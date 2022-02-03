@@ -1,9 +1,9 @@
 import React from 'react';
 import { Resizable } from 'react-resizable';
 import PropTypes from 'prop-types';
-import './ResizeHeader.scss';
+import './Header.scss';
 
-const ResizeHeader = (props) => {
+const TestHeader = (props) => {
   const {
     minWidth,
     maxWidth,
@@ -12,6 +12,12 @@ const ResizeHeader = (props) => {
     ...restProps
   } = props;
 
+  // const [customWidth, setCustomWidth] = useState(maxWidth);
+
+  // useEffect(() => {
+  //   setCustomWidth(maxWidth);
+  // },[maxWidth]);
+
   const setBodyStyle = (active) => {
     document.body.style.userSelect = active ? 'none' : '';
     document.body.style.pointerEvents = active ? 'none' : '';
@@ -19,9 +25,13 @@ const ResizeHeader = (props) => {
   };
   const onResizeStart = (e, { size }) => {
     setBodyStyle(true);
+    // setCustomWidth(size.width);
   };
-
+  // const onSelfResize = (e, { size }) => {
+  //   setCustomWidth(size.width);
+  // };
   const onResizeStop = () => {
+    // onResize(customWidth);
     setBodyStyle(false);
   };
 
@@ -34,6 +44,7 @@ const ResizeHeader = (props) => {
     // }}
     />:
     <Resizable
+      // width={customWidth}
       width={maxWidth}
       height={0}
       handle={
@@ -44,6 +55,7 @@ const ResizeHeader = (props) => {
         }}
       />}
       onResizeStart={onResizeStart}
+      // onResize={onSelfResize}
       onResize={onResize}
       onResizeStop={onResizeStop}
       draggableOpts={{ enableUserSelectHack: false }}
@@ -56,18 +68,18 @@ const ResizeHeader = (props) => {
   );
 };
 
-ResizeHeader.propTypes = {
+TestHeader.propTypes = {
   onResize: PropTypes.func,
   minWidth: PropTypes.number,
   maxWidth: PropTypes.number,
   isFixed: PropTypes.bool
 };
 
-ResizeHeader.defaultProps = {
+TestHeader.defaultProps = {
   minWidth: 20,
   maxWidth: 20,
   onResize: () => {},
   isFixed: false
 };
 
-export default ResizeHeader;
+export default TestHeader;

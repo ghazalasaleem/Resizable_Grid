@@ -1,12 +1,14 @@
 import { Table } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { columnsData } from '../../config/GridConfig';
-import ResizeHeader from './ResizeHeader';
-import './ResizeGrid.scss';
-import ResizeCell from './CellComponent';
+import ResizeHeader from './Header';
+import './ResizeGridNew.scss';
+import ResizeCell from './Cell';
 import { data } from '../../config/Mockdata';
+import { VList } from "virtuallist-antd";
 
-const ResizeGrid = () => {
+
+const TestGrid = () => {
   const [columns, setColumns] = useState([]);
   const [isAutoFit, setIsAutoFit] = useState(false);
 
@@ -16,6 +18,7 @@ const ResizeGrid = () => {
   };
 
   const autooo = '';
+
   const rerenderTable = (colConfig, isAuto, key) => {
     const totalWidthInPercentage = colConfig.reduce((a, c) => {
       return a + c.widthInPercentage;
@@ -138,20 +141,27 @@ const ResizeGrid = () => {
     }
   ));
   const components = {
+    ...VList({
+      height: 500
+    }),
     header: {
       cell: ResizeHeader,
     },
-    body: {
-      cell: ResizeCell,
-    }
+    // body: {
+    //   cell: ResizeCell,
+    // }
   };
   return (
     <div className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"}>
       <Table dataSource={data} columns={tableCols} pagination={false} bordered components={components} 
       tableLayout='auto'
+      scroll={{ 
+        y: 500,
+        // x: 'max-content'
+       }}
       />
     </div>
   );
 };
 
-export default ResizeGrid;
+export default TestGrid;

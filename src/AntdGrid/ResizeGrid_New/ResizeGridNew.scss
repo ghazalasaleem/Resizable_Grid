@@ -1,17 +1,19 @@
 .resizeGrid {
   &.autofit {
-    .ant-table table {
+    .ant-table .ant-table-body table {
       width: auto;
     }
   }
   .ant-table .ant-table-container {
      table {
+      //  table-layout: auto !important;
+
       //  below css required when scroll y is not passed.
-       thead {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-       }
+      //  thead {
+      //   // position: sticky;
+      //   // top: 0;
+      //   // z-index: 1;
+      //  }
       .ant-table-cell {
         &:not(.ant-table-cell-ellipsis) {
           white-space: nowrap;
