@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { columnsData } from '../../config/GridConfig';
 import ResizeHeader from './Header';
 import './ResizeGridNew.scss';
-import ResizeCell from './Cell';
+// import ResizeCell from './Cell';
 import { data } from '../../config/Mockdata';
 import { VList } from "virtuallist-antd";
 

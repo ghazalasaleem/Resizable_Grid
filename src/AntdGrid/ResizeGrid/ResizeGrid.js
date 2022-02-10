@@ -1,5 +1,5 @@
 import { Table } from 'antd';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { columnsData } from '../../config/GridConfig';
 import ResizeHeader from './ResizeHeader';
 import './ResizeGrid.scss';
@@ -8,12 +8,29 @@ import { data } from '../../config/Mockdata';
 
 const ResizeGrid = () => {
   const [columns, setColumns] = useState([]);
-  const [isAutoFit, setIsAutoFit] = useState(false);
+  const [dataList, setDataList] = useState([]);
+  const [page, setPage] = useState(0);
+  let isDataFetched = false;
 
+  const [isAutoFit, setIsAutoFit] = useState(false);
+  const parentRef = useRef();
   const calcWidth = (val) => {
-    let width = ((window.innerWidth * val) / 100) - 1;
+    let width = ((parentRef.current.offsetWidth * val) / 100) - 1;
     return width;
   };
+
+  const fetchData = () => {
+    const len=dataList.length;
+    const temp = data.map((item, index) => ({ ...item, key: `${len+index+1}`,
+    job: `${len+index+1}-${item.job}`,}));
+
+    setDataList([...dataList, ...temp]);
+    setPage(page + 1);
+  };
+
+  useEffect(() => {
+    isDataFetched = false;
+  }, [dataList]);
 
   const autooo = '';
   const rerenderTable = (colConfig, isAuto, key) => {
@@ -81,6 +98,7 @@ const ResizeGrid = () => {
   }, [columns]);
 
   useEffect(() => {
+    fetchData();
     rerenderTable(columnsData, false);
   }, []);  
 
@@ -145,9 +163,21 @@ const ResizeGrid = () => {
       cell: ResizeCell,
     }
   };
+
+  const infiniteScroll = () => {
+    // console.log('1 -', parentRef.current.scrollHeight);
+    // console.log('2 -', parentRef.current.scrollTop);
+    // console.log('3 -',parentRef.current.offsetHeight);
+
+    if (!isDataFetched && parentRef.current.scrollHeight - parseInt(parentRef.current.scrollTop + parentRef.current.offsetHeight) < 10){
+      isDataFetched = true;
+      fetchData();
+    }
+  };
+
   return (
-    <div className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"}>
-      <Table dataSource={data} columns={tableCols} pagination={false} bordered components={components} 
+    <div ref={parentRef} className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"} onScroll={infiniteScroll}>
+      <Table dataSource={dataList} columns={tableCols} pagination={false} bordered components={components} 
       tableLayout='auto'
       />
     </div>

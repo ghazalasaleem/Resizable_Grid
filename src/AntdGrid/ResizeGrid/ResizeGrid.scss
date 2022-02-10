@@ -1,4 +1,6 @@
 .resizeGrid {
+  height: 500px;
+  overflow-y: auto;
   &.autofit {
     .ant-table table {
       width: auto;
