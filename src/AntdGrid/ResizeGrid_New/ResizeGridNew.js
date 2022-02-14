@@ -152,7 +152,7 @@ const TestGrid = () => {
     // }
   };
   return (
-    <div className={isAutoFit ? "resizeGrid autofit" : "resizeGrid"}>
+    <div className={isAutoFit ? "resizeGridNew autofit" : "resizeGridNew"}>
       <Table dataSource={data} columns={tableCols} pagination={false} bordered components={components} 
       tableLayout='auto'
       scroll={{ 
